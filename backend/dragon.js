@@ -1,8 +1,10 @@
+const moment=require('moment');
 const TRAITS = require('./traits.json');
 
 const DEFAULT_PROPERTIES = {
   nickname: 'unnamed',
   get birthdate() {
+    //return moment().format();
     return new Date();
   },
   get randomTraits() {
