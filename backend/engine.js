@@ -1,4 +1,5 @@
 const Generation = require('./generation');
+const moment=require('moment');
 
 class GenerationEngine {
   constructor() {
@@ -17,11 +18,12 @@ class GenerationEngine {
   buildNewGeneration() {
     this.generation = new Generation();
 
-    console.log('new genration', this.generation);
+    console.log('new generation', this.generation);
 
     this.timer = setTimeout(
       () => this.buildNewGeneration(),
       this.generation.expiration.getTime() - Date.now()
+      //this.generation.expiration.getTime() - moment().format()
     );
   }
 }
