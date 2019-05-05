@@ -1,15 +1,9 @@
-const moment=require('moment');
-const Generation=require('./generation');
+const GenerationEngine=require('./engine');
 
-//console.log(moment().format());
+const engine=new GenerationEngine();
 
-const generation=new Generation();
-console.log('generation', generation);
-
-const gooby=generation.newDragon();
-console.log('gooby', gooby);
+engine.start();
 
 setTimeout(()=>{
-  const mimar=generation.newDragon();
-  console.log('mimar', mimar);
-}, 1000);
+  engine.stop();
+}, 20000);
