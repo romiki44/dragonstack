@@ -25,7 +25,7 @@ class Generation extends Component {
     if(delay<MINIMUM_DELAY)
       delay=MINIMUM_DELAY;
 
-    this. timer=setTimeout(()=>this.fetchNextGeneration(), delay);
+    this.timer=setTimeout(()=>this.fetchNextGeneration(), delay);
   }
 
 

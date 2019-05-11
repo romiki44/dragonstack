@@ -29088,26 +29088,26 @@ var _types = require("./types");
 var _config = require("../config");
 
 var fetchGeneration = function fetchGeneration() {
-  return function (dispach) {
-    dispach({
+  return function (dispatch) {
+    dispatch({
       type: _types.GENERATION.FETCH
     });
     return fetch("".concat(_config.BACKEND.ADDRESS, "/generation")).then(function (response) {
       return response.json();
     }).then(function (json) {
       if (json.type === 'error') {
-        dispach({
+        dispatch({
           type: _types.GENERATION.FETCH_ERROR,
           message: json.message
         });
       } else {
-        dispach({
+        dispatch({
           type: _types.GENERATION.FETCH_SUCCESS,
           generation: json.generation
         });
       }
     }).catch(function (error) {
-      return dispach({
+      return dispatch({
         type: _types.GENERATION.FETCH_ERROR,
         message: error.message
       });
@@ -29126,10 +29126,10 @@ exports.default = void 0;
 var _default = {
   fetching: 'fetching',
   error: 'error',
-  succes: 'success'
+  success: 'success'
 };
 exports.default = _default;
-},{}],"component/Generation.js":[function(require,module,exports) {
+},{}],"components/Generation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -44563,7 +44563,7 @@ var _ToggleButtonGroup2 = _interopRequireDefault(require("./ToggleButtonGroup"))
 var _Tooltip2 = _interopRequireDefault(require("./Tooltip"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Accordion":"../node_modules/react-bootstrap/es/Accordion.js","./Alert":"../node_modules/react-bootstrap/es/Alert.js","./Badge":"../node_modules/react-bootstrap/es/Badge.js","./Breadcrumb":"../node_modules/react-bootstrap/es/Breadcrumb.js","./BreadcrumbItem":"../node_modules/react-bootstrap/es/BreadcrumbItem.js","./Button":"../node_modules/react-bootstrap/es/Button.js","./ButtonGroup":"../node_modules/react-bootstrap/es/ButtonGroup.js","./ButtonToolbar":"../node_modules/react-bootstrap/es/ButtonToolbar.js","./Card":"../node_modules/react-bootstrap/es/Card.js","./CardColumns":"../node_modules/react-bootstrap/es/CardColumns.js","./CardDeck":"../node_modules/react-bootstrap/es/CardDeck.js","./CardImg":"../node_modules/react-bootstrap/es/CardImg.js","./CardGroup":"../node_modules/react-bootstrap/es/CardGroup.js","./Carousel":"../node_modules/react-bootstrap/es/Carousel.js","./CarouselItem":"../node_modules/react-bootstrap/es/CarouselItem.js","./CloseButton":"../node_modules/react-bootstrap/es/CloseButton.js","./Col":"../node_modules/react-bootstrap/es/Col.js","./Collapse":"../node_modules/react-bootstrap/es/Collapse.js","./Dropdown":"../node_modules/react-bootstrap/es/Dropdown.js","./DropdownButton":"../node_modules/react-bootstrap/es/DropdownButton.js","./DropdownItem":"../node_modules/react-bootstrap/es/DropdownItem.js","./Fade":"../node_modules/react-bootstrap/es/Fade.js","./Form":"../node_modules/react-bootstrap/es/Form.js","./FormControl":"../node_modules/react-bootstrap/es/FormControl.js","./FormCheck":"../node_modules/react-bootstrap/es/FormCheck.js","./FormGroup":"../node_modules/react-bootstrap/es/FormGroup.js","./FormLabel":"../node_modules/react-bootstrap/es/FormLabel.js","./FormText":"../node_modules/react-bootstrap/es/FormText.js","./Container":"../node_modules/react-bootstrap/es/Container.js","./Image":"../node_modules/react-bootstrap/es/Image.js","./Figure":"../node_modules/react-bootstrap/es/Figure.js","./InputGroup":"../node_modules/react-bootstrap/es/InputGroup.js","./Jumbotron":"../node_modules/react-bootstrap/es/Jumbotron.js","./ListGroup":"../node_modules/react-bootstrap/es/ListGroup.js","./ListGroupItem":"../node_modules/react-bootstrap/es/ListGroupItem.js","./Media":"../node_modules/react-bootstrap/es/Media.js","./Modal":"../node_modules/react-bootstrap/es/Modal.js","./ModalBody":"../node_modules/react-bootstrap/es/ModalBody.js","./ModalDialog":"../node_modules/react-bootstrap/es/ModalDialog.js","./ModalFooter":"../node_modules/react-bootstrap/es/ModalFooter.js","./ModalTitle":"../node_modules/react-bootstrap/es/ModalTitle.js","./Nav":"../node_modules/react-bootstrap/es/Nav.js","./Navbar":"../node_modules/react-bootstrap/es/Navbar.js","./NavbarBrand":"../node_modules/react-bootstrap/es/NavbarBrand.js","./NavDropdown":"../node_modules/react-bootstrap/es/NavDropdown.js","./NavItem":"../node_modules/react-bootstrap/es/NavItem.js","./Overlay":"../node_modules/react-bootstrap/es/Overlay.js","./OverlayTrigger":"../node_modules/react-bootstrap/es/OverlayTrigger.js","./PageItem":"../node_modules/react-bootstrap/es/PageItem.js","./Pagination":"../node_modules/react-bootstrap/es/Pagination.js","./Popover":"../node_modules/react-bootstrap/es/Popover.js","./ProgressBar":"../node_modules/react-bootstrap/es/ProgressBar.js","./ResponsiveEmbed":"../node_modules/react-bootstrap/es/ResponsiveEmbed.js","./Row":"../node_modules/react-bootstrap/es/Row.js","./SafeAnchor":"../node_modules/react-bootstrap/es/SafeAnchor.js","./Spinner":"../node_modules/react-bootstrap/es/Spinner.js","./SplitButton":"../node_modules/react-bootstrap/es/SplitButton.js","./Tab":"../node_modules/react-bootstrap/es/Tab.js","./TabContainer":"../node_modules/react-bootstrap/es/TabContainer.js","./TabContent":"../node_modules/react-bootstrap/es/TabContent.js","./Table":"../node_modules/react-bootstrap/es/Table.js","./TabPane":"../node_modules/react-bootstrap/es/TabPane.js","./Tabs":"../node_modules/react-bootstrap/es/Tabs.js","./ThemeProvider":"../node_modules/react-bootstrap/es/ThemeProvider.js","./ToggleButton":"../node_modules/react-bootstrap/es/ToggleButton.js","./ToggleButtonGroup":"../node_modules/react-bootstrap/es/ToggleButtonGroup.js","./Tooltip":"../node_modules/react-bootstrap/es/Tooltip.js"}],"component/DragonAvatar.js":[function(require,module,exports) {
+},{"./Accordion":"../node_modules/react-bootstrap/es/Accordion.js","./Alert":"../node_modules/react-bootstrap/es/Alert.js","./Badge":"../node_modules/react-bootstrap/es/Badge.js","./Breadcrumb":"../node_modules/react-bootstrap/es/Breadcrumb.js","./BreadcrumbItem":"../node_modules/react-bootstrap/es/BreadcrumbItem.js","./Button":"../node_modules/react-bootstrap/es/Button.js","./ButtonGroup":"../node_modules/react-bootstrap/es/ButtonGroup.js","./ButtonToolbar":"../node_modules/react-bootstrap/es/ButtonToolbar.js","./Card":"../node_modules/react-bootstrap/es/Card.js","./CardColumns":"../node_modules/react-bootstrap/es/CardColumns.js","./CardDeck":"../node_modules/react-bootstrap/es/CardDeck.js","./CardImg":"../node_modules/react-bootstrap/es/CardImg.js","./CardGroup":"../node_modules/react-bootstrap/es/CardGroup.js","./Carousel":"../node_modules/react-bootstrap/es/Carousel.js","./CarouselItem":"../node_modules/react-bootstrap/es/CarouselItem.js","./CloseButton":"../node_modules/react-bootstrap/es/CloseButton.js","./Col":"../node_modules/react-bootstrap/es/Col.js","./Collapse":"../node_modules/react-bootstrap/es/Collapse.js","./Dropdown":"../node_modules/react-bootstrap/es/Dropdown.js","./DropdownButton":"../node_modules/react-bootstrap/es/DropdownButton.js","./DropdownItem":"../node_modules/react-bootstrap/es/DropdownItem.js","./Fade":"../node_modules/react-bootstrap/es/Fade.js","./Form":"../node_modules/react-bootstrap/es/Form.js","./FormControl":"../node_modules/react-bootstrap/es/FormControl.js","./FormCheck":"../node_modules/react-bootstrap/es/FormCheck.js","./FormGroup":"../node_modules/react-bootstrap/es/FormGroup.js","./FormLabel":"../node_modules/react-bootstrap/es/FormLabel.js","./FormText":"../node_modules/react-bootstrap/es/FormText.js","./Container":"../node_modules/react-bootstrap/es/Container.js","./Image":"../node_modules/react-bootstrap/es/Image.js","./Figure":"../node_modules/react-bootstrap/es/Figure.js","./InputGroup":"../node_modules/react-bootstrap/es/InputGroup.js","./Jumbotron":"../node_modules/react-bootstrap/es/Jumbotron.js","./ListGroup":"../node_modules/react-bootstrap/es/ListGroup.js","./ListGroupItem":"../node_modules/react-bootstrap/es/ListGroupItem.js","./Media":"../node_modules/react-bootstrap/es/Media.js","./Modal":"../node_modules/react-bootstrap/es/Modal.js","./ModalBody":"../node_modules/react-bootstrap/es/ModalBody.js","./ModalDialog":"../node_modules/react-bootstrap/es/ModalDialog.js","./ModalFooter":"../node_modules/react-bootstrap/es/ModalFooter.js","./ModalTitle":"../node_modules/react-bootstrap/es/ModalTitle.js","./Nav":"../node_modules/react-bootstrap/es/Nav.js","./Navbar":"../node_modules/react-bootstrap/es/Navbar.js","./NavbarBrand":"../node_modules/react-bootstrap/es/NavbarBrand.js","./NavDropdown":"../node_modules/react-bootstrap/es/NavDropdown.js","./NavItem":"../node_modules/react-bootstrap/es/NavItem.js","./Overlay":"../node_modules/react-bootstrap/es/Overlay.js","./OverlayTrigger":"../node_modules/react-bootstrap/es/OverlayTrigger.js","./PageItem":"../node_modules/react-bootstrap/es/PageItem.js","./Pagination":"../node_modules/react-bootstrap/es/Pagination.js","./Popover":"../node_modules/react-bootstrap/es/Popover.js","./ProgressBar":"../node_modules/react-bootstrap/es/ProgressBar.js","./ResponsiveEmbed":"../node_modules/react-bootstrap/es/ResponsiveEmbed.js","./Row":"../node_modules/react-bootstrap/es/Row.js","./SafeAnchor":"../node_modules/react-bootstrap/es/SafeAnchor.js","./Spinner":"../node_modules/react-bootstrap/es/Spinner.js","./SplitButton":"../node_modules/react-bootstrap/es/SplitButton.js","./Tab":"../node_modules/react-bootstrap/es/Tab.js","./TabContainer":"../node_modules/react-bootstrap/es/TabContainer.js","./TabContent":"../node_modules/react-bootstrap/es/TabContent.js","./Table":"../node_modules/react-bootstrap/es/Table.js","./TabPane":"../node_modules/react-bootstrap/es/TabPane.js","./Tabs":"../node_modules/react-bootstrap/es/Tabs.js","./ThemeProvider":"../node_modules/react-bootstrap/es/ThemeProvider.js","./ToggleButton":"../node_modules/react-bootstrap/es/ToggleButton.js","./ToggleButtonGroup":"../node_modules/react-bootstrap/es/ToggleButtonGroup.js","./Tooltip":"../node_modules/react-bootstrap/es/Tooltip.js"}],"components/DragonAvatar.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -44664,7 +44664,7 @@ var fetchDragon = function fetchDragon() {
 };
 
 exports.fetchDragon = fetchDragon;
-},{"./types":"actions/types.js","../config":"config.js"}],"component/Dragon.js":[function(require,module,exports) {
+},{"./types":"actions/types.js","../config":"config.js"}],"components/Dragon.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -44739,7 +44739,7 @@ var _default = (0, _reactRedux.connect)(function (_ref) {
 })(Dragon);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","react-bootstrap":"../node_modules/react-bootstrap/es/index.js","./DragonAvatar":"component/DragonAvatar.js","../actions/dragon":"actions/dragon.js"}],"reducers/generation.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","react-bootstrap":"../node_modules/react-bootstrap/es/index.js","./DragonAvatar":"components/DragonAvatar.js","../actions/dragon":"actions/dragon.js"}],"reducers/generation.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -44831,7 +44831,7 @@ var dragon = function dragon() {
     case _types.DRAGON.FETCH_SUCCESS:
       return _extends({}, state, {
         status: _fetchStates.default.success
-      }, action.generation);
+      }, action.dragon);
 
     default:
       return state;
@@ -44947,9 +44947,9 @@ var _reactDom = require("react-dom");
 
 var _reduxThunk = _interopRequireDefault(require("redux-thunk"));
 
-var _Generation = _interopRequireDefault(require("./component/Generation"));
+var _Generation = _interopRequireDefault(require("./components/Generation"));
 
-var _Dragon = _interopRequireDefault(require("./component/Dragon"));
+var _Dragon = _interopRequireDefault(require("./components/Dragon"));
 
 var _reducers = _interopRequireDefault(require("./reducers"));
 
@@ -44961,7 +44961,7 @@ var store = (0, _redux.createStore)(_reducers.default, (0, _redux.compose)((0, _
 (0, _reactDom.render)(_react.default.createElement(_reactRedux.Provider, {
   store: store
 }, _react.default.createElement("div", null, _react.default.createElement("h2", null, "Dragon Stack"), _react.default.createElement(_Generation.default, null), _react.default.createElement(_Dragon.default, null))), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","redux":"../node_modules/redux/es/redux.js","react-redux":"../node_modules/react-redux/es/index.js","react-dom":"../node_modules/react-dom/index.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","./component/Generation":"component/Generation.js","./component/Dragon":"component/Dragon.js","./reducers":"reducers/index.js","./index.css":"index.css"}],"C:/Users/romik/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","redux":"../node_modules/redux/es/redux.js","react-redux":"../node_modules/react-redux/es/index.js","react-dom":"../node_modules/react-dom/index.js","redux-thunk":"../node_modules/redux-thunk/es/index.js","./components/Generation":"components/Generation.js","./components/Dragon":"components/Dragon.js","./reducers":"reducers/index.js","./index.css":"index.css"}],"C:/Users/romik/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -44989,7 +44989,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64129" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64824" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

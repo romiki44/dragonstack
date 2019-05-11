@@ -3,8 +3,8 @@ import {createStore, compose, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import thunk from 'redux-thunk';
-import Generation from './component/Generation';
-import Dragon from './component/Dragon';
+import Generation from './components/Generation';
+import Dragon from './components/Dragon';
 import rootReducer from './reducers';
 import './index.css';
 
